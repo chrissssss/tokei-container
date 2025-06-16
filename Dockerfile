@@ -1,10 +1,10 @@
 FROM rust:latest
 
-# Install Git and clone tools
+# Install Git, jq, Python
 RUN apt-get update && \
-    apt-get install -y git && \
+    apt-get install -y git jq python3 bc && \
     cargo install tokei
 
 WORKDIR /app
-COPY analyze.sh /app/analyze.sh
+COPY files /app/
 RUN chmod +x analyze.sh

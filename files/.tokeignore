@@ -1,0 +1,54 @@
+# .tokeignore für Android Kotlin Projekte
+# Dieses File dient dazu, Dateien und Verzeichnisse von der Tokei-Analyse auszuschließen,
+# um eine genauere Aufwandsschätzung nach COCOMO zu ermöglichen.
+# Es fokussiert sich primär auf Kotlin-Sourcecode unter app/src/main/java.
+
+# Build-System Dateien und Gradle Wrapper
+*.gradle
+*.gradle.kts
+gradlew
+gradlew.bat
+gradle/
+# Explizit für Root-Level Gradle-Dateien
+./settings.gradle.kts
+./build.gradle.kts
+# Explizit für App-Level Gradle-Datei
+app/build.gradle.kts
+
+# Proguard / R8 Regeln
+app/proguard-rules.pro
+proguard-rules.pro
+
+# Konfigurationsdateien
+compose-stability-conf.txt
+*.properties # z.B. local.properties, gradle.properties (außerhalb von gradle/ Verzeichnis)
+
+# Dokumentation & Lizenzierung
+README.md
+README.*
+LICENSE
+LICENSE.txt
+LICENSE.*
+*.md
+
+# Android Ressourcen (XMLs, Drawables, Values, Manifest, etc.)
+app/src/main/res/
+app/src/debug/res/
+app/src/main/AndroidManifest.xml
+
+# Assets (SVGs, Fonts, Rohdaten etc.)
+assets/
+app/src/main/assets/
+
+# Test Code
+app/src/test/
+app/src/androidTest/
+
+# Fastlane Metadaten
+fastlane/
+
+# IDE spezifische Dateien/Verzeichnisse und Build-Ausgaben
+.idea/
+*.iml
+.DS_Store
+build/

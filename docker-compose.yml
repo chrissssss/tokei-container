@@ -6,5 +6,5 @@ services:
     volumes:
       - ./output:/output
     environment:
-      - GIT_REPO=https://github.com/davidtakac/bura
+      - GIT_REPO=https://github.com/chrissssss/tokei-container
     command: ["sh", "-c", "./analyze.sh"]
