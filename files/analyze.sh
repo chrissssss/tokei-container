@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_URL="${GIT_REPO:-https://github.com/davidtakac/bura}"
+REPO_URL="${GIT_REPO:-https://github.com/chrissssss/tokei-container}"
 REPO_NAME=$(basename "$REPO_URL" .git)
 
 # Klonen
