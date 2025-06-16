@@ -1,6 +1,6 @@
 # Dockerisierter Tokei Code-Analysator
 
-Dieses Projekt stellt eine Docker-Umgebung bereit, um Code-Statistiken eines Git-Repositorys mithilfe von [Tokei](https://github.com/XAMPPRocky/tokei) zu analysieren. Das Ergebnis der Analyse (Lines of Code, Kommentare, etc.) wird als JSON-Datei ausgegeben.
+Dieses Projekt stellt eine Docker-Umgebung bereit, um Code-Statistiken eines Git-Repositorys mithilfe von [Tokei](https://github.com/XAMPPRocky/tokei) zu analysieren. Das Ergebnis der Analyse (Lines of Code, Kommentare, etc.) wird als JSON-Datei ausgegeben. Auf dieser Basis wird der Projektaufwand nach der COCOMO Methode geschätzt
 
 ## Inhaltsverzeichnis
 
