@@ -2,18 +2,23 @@
 
 set -e
 
-REPO_URL="${GIT_REPO:-https://github.com/chrissssss/tokei-container}"
+# GIT_REPO wird durch docker-compose.yml oder Shell-Umgebungsvariable gesetzt.
+# Wenn GIT_REPO nicht gesetzt ist, wird das Skript fehlschlagen, was in diesem Setup
+# nicht passieren sollte, da docker-compose.yml einen Standardwert bereitstellt.
+if [ -z "$GIT_REPO" ]; then
+  echo "Fehler: Die Umgebungsvariable GIT_REPO ist nicht gesetzt." >&2
+  exit 1
+fi
+REPO_URL="$GIT_REPO"
 REPO_NAME=$(basename "$REPO_URL" .git)
 
 # Klonen
 git clone --depth 1 "$REPO_URL"
-
-# wenn .tokeignore existiert, die datei nach $REPO_NAME kopieren
-if [ -f ".tokeignore" ]; then
-  cp .tokeignore "$REPO_NAME"
-fi
-
 cd "$REPO_NAME"
+
+# Kopiere .tokeignore Datei aus /app (wo Dockerfile sie platziert hat)
+# in das Wurzelverzeichnis des geklonten Repos, falls vorhanden.
+test -f /app/.tokeignore && cp /app/.tokeignore .
 
 # LOC-Analyse (JSON)
 echo "Analysiere Code mit tokei..."

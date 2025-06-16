@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   code-analysis:
     build: .
     volumes:
       - ./output:/output
     environment:
-      - GIT_REPO=https://github.com/chrissssss/tokei-container
+      - GIT_REPO=${GIT_REPO:-https://github.com/chrissssss/tokei-container}
     command: ["sh", "-c", "./analyze.sh"]
