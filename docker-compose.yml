@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  code-analysis:
+    build: .
+    volumes:
+      - ./output:/output
+    environment:
+      - GIT_REPO=https://github.com/davidtakac/bura
+    command: ["sh", "-c", "./analyze.sh"]
